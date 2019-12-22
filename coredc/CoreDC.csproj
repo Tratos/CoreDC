@@ -1,0 +1,79 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F71B8493-E39D-4E45-AAE5-0E986E5213F2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CoreDC</RootNamespace>
+    <AssemblyName>CoreDC</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\coredc.demo\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\HubDetection.cs" />
+    <Compile Include="Classes\SearchInfo.cs" />
+    <Compile Include="Classes\SearchReply.cs" />
+    <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\UserCommand.cs" />
+    <Compile Include="DcClient.Component.cs">
+      <DependentUpon>DcClient.cs</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DcClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DcClient.Designer.cs">
+      <DependentUpon>DcClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DcClient.Events.cs">
+      <DependentUpon>DcClient.cs</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\ClientInfo.cs" />
+    <Compile Include="Implementation\DcConnection.cs">
+    </Compile>
+    <Compile Include="Classes\HubInfo.cs" />
+    <Compile Include="Classes\NickList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Implementation\ProtocolHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Diagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="clipboard.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
